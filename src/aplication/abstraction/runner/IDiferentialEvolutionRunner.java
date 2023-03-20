@@ -3,5 +3,5 @@ package aplication.abstraction.runner;
 import aplication.abstraction.domain.Individual;
 
 public interface IDiferentialEvolutionRunner {
-    public void execute(Individual[] initialPopulation, int maxGenerations);
+    public Individual[] execute(Individual[] initialPopulation, int maxGenerations, Double mutationFactor, Double crossoverFactor);
 }
