@@ -10,10 +10,10 @@ public class SimpleDiferentialEvolutionRunner implements IDiferentialEvolutionRu
     @Override
     public Individual[] execute(Individual[] initialPopulation, int maxGenerations, Double mutationFactor, Double crossoverFactor) {
         int individualDimension = initialPopulation.length;
-        int geneartions = 0;
+        int generations = 0;
         Random random = new Random();
 
-        while(geneartions <= maxGenerations){
+        while(generations <= maxGenerations){
 
             Individual[] newPopulation = new Individual[individualDimension];
 
@@ -31,19 +31,49 @@ public class SimpleDiferentialEvolutionRunner implements IDiferentialEvolutionRu
                 Individual individualU = individual1.generateU(individual2, individual3, mutationFactor);
                 Individual experimental = initialPopulation[i].generateExperimental(individualU, crossoverFactor);
 
-                if(experimental.getAvaliation()[0] < initialPopulation[i].getAvaliation()[0]){
+                if(dominates(experimental, initialPopulation[i])){
                     newPopulation[i] = experimental;
                 }else{
                     newPopulation[i] = initialPopulation[i];
                 }
+
             }
             initialPopulation = newPopulation;
 
+            Individual bestIndividual = getBestIndividual(initialPopulation);
+            System.out.print(generations +": ");
+            for(int i=0; i<bestIndividual.getAvaliation().length; i++){
+                System.out.print(bestIndividual.getAvaliation()[i]);
+                if(bestIndividual.getAvaliation().length != i-1) System.out.print(", ");
+            }
+            System.out.println();
+            generations++;
         }
 
         return initialPopulation;
     }
 
+    private boolean dominates(Individual first, Individual second){
+        boolean dominates = true;
+        for(int i=0; i< first.getAvaliation().length; i++){
+            if(first.getAvaliation()[i] > second.getAvaliation()[i]){
+                dominates = false;
+            }
+        }
+        return dominates;
+    }
+    private Individual getBestIndividual(Individual[] population){
+
+        Individual bestIndividual = population[0];
+
+        for(int i=1; i < population.length; i++){
+            if(dominates(population[i], bestIndividual)){
+                bestIndividual = population[i];
+            }
+        }
+
+        return bestIndividual;
+    }
 
 
     private int[] generateUniqueR1R2R3(int individualDimension){

@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4678342d-abec-4328-bb2c-97047e2bf648" name="Changes" comment="initial folder and class structure">
+    <list default="true" id="4678342d-abec-4328-bb2c-97047e2bf648" name="Changes" comment="Fluxo completo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aplication/abstraction/domain/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/abstraction/domain/Individual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aplication/abstraction/runner/IDiferentialEvolutionRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/abstraction/runner/IDiferentialEvolutionRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aplication/implementation/domain/X1X2Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/domain/X1X2Individual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplication/implementation/factory/IndividualFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/factory/IndividualFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aplication/implementation/runner/SimpleDiferentialEvolutionRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/runner/SimpleDiferentialEvolutionRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/EnumIndividualTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/EnumIndividualTypes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678908063361</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fluxo completo">
+      <created>1679339992348</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679339992348</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,6 +113,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial" />
     <MESSAGE value="initial folder and class structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial folder and class structure" />
+    <MESSAGE value="Fluxo completo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fluxo completo" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/aplication/implementation/runner/SimpleDiferentialEvolutionRunner.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
