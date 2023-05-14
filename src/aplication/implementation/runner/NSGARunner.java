@@ -2,10 +2,13 @@ package aplication.implementation.runner;
 
 import aplication.abstraction.domain.Individual;
 import aplication.abstraction.runner.IDiferentialEvolutionRunner;
+import aplication.abstraction.service.IExportToFileService;
 import aplication.implementation.domain.ComparatorNSGA;
 import aplication.implementation.domain.FNDSIndividual;
+import aplication.implementation.service.ExportToFileService;
 import domain.EnumDomain;
 
+import java.io.IOException;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,10 +17,10 @@ import java.util.Random;
 public class NSGARunner implements IDiferentialEvolutionRunner {
 
     @Override
-    public ArrayList<Individual> execute(ArrayList<Individual> initialPopulation, int maxGenerations, Double mutationFactor, Double crossoverFactor) {
+    public ArrayList<Individual> execute(ArrayList<Individual> initialPopulation, int maxGenerations, Double mutationFactor, Double crossoverFactor) throws IOException {
         int individualDimension = initialPopulation.size();
         int generations = 0;
-        Random random = new Random();
+        IExportToFileService exportToFile = new ExportToFileService();
 
         while(generations <= maxGenerations){
 
@@ -61,24 +64,14 @@ public class NSGARunner implements IDiferentialEvolutionRunner {
 
             initialPopulation = newPopulation;
             generations++;
+            if(generations==1 || generations==10 || generations==50 || generations==100 || generations==1000){
+                exportToFile.export(initialPopulation, "g_"+generations);
+            }
         }
 
         return initialPopulation;
     }
 
-    private Individual chooseByDomination(Individual first, Individual second){
-
-        EnumDomain dominationResult = dominates(first, second);
-        switch (dominationResult){
-            case DOMINATED: return second;
-            case DOMINATES: return first;
-            default: {
-                Random r = new Random();
-                Individual[] options = {first, second};
-                return options[r.nextInt(2)];
-            }
-        }
-    }
     private EnumDomain dominates(Individual first, Individual second){
         boolean dominates = true;
         boolean dominated = true;
@@ -94,17 +87,6 @@ public class NSGARunner implements IDiferentialEvolutionRunner {
 
         return EnumDomain.NEUTRAL;
     }
-    private Individual getBestIndividual(Individual[] population){
-
-        Individual bestIndividual = population[0];
-
-        for(int i=1; i < population.length; i++){
-            bestIndividual = chooseByDomination(population[i], bestIndividual);
-        }
-
-        return bestIndividual;
-    }
-
 
     private int[] generateUniqueR1R2R3(int individualDimension){
         Random random = new Random();
