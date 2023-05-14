@@ -7,6 +7,8 @@ public abstract class Individual {
     protected Double[] genes;
     protected Double[] avaliation;
 
+    protected double d;
+
     protected Individual(int dimension, int maxRange, int minRange){
         this.genes = this.initializeGenes(dimension, maxRange, minRange);
         this.avaliation = this.avaliate();
@@ -23,6 +25,14 @@ public abstract class Individual {
             genes[i] = random.nextDouble() * maxRange * 2 * minRange;
         }
         return genes;
+    }
+
+    public double getD() {
+        return d;
+    }
+
+    public void setD(double d) {
+        this.d = d;
     }
 
     public Double[] getGenes() {

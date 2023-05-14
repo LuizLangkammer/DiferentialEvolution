@@ -2,26 +2,30 @@ import aplication.abstraction.domain.Individual;
 import aplication.abstraction.factory.IIndividualFactory;
 import aplication.abstraction.runner.IDiferentialEvolutionRunner;
 import aplication.implementation.factory.IndividualFactory;
+import aplication.implementation.runner.NSGARunner;
 import aplication.implementation.runner.SimpleDiferentialEvolutionRunner;
 import domain.EnumIndividualTypes;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
 
         IIndividualFactory individualFactory = new IndividualFactory();
-        int generations = 100;
+        EnumIndividualTypes type = EnumIndividualTypes.F4Individual;
+        int generations = 100000;
         int populationDimension = 20;
-        Double crossoverFactor = 0.1;
+        Double crossoverFactor = 0.8;
         Double mutationFactor = 0.5;
 
-        IDiferentialEvolutionRunner runner = new SimpleDiferentialEvolutionRunner();
+        NSGARunner runner = new NSGARunner();
 
-        Individual[] initialPopulation = new Individual[populationDimension];
-        for(int i=0; i< initialPopulation.length; i++){
-            initialPopulation[i] = individualFactory.obtem(EnumIndividualTypes.F4Individual);
+        ArrayList<Individual> initialPopulation = new ArrayList<>();
+        for(int i=0; i < populationDimension; i++){
+            initialPopulation.add (individualFactory.obtem(type));
         }
 
-        Individual [] result = runner.execute(initialPopulation, generations, mutationFactor, crossoverFactor);
+        ArrayList<Individual> result = runner.execute(initialPopulation, generations, mutationFactor, crossoverFactor);
 
     }
 }

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4678342d-abec-4328-bb2c-97047e2bf648" name="Changes" comment="Fluxo completo">
+    <list default="true" id="4678342d-abec-4328-bb2c-97047e2bf648" name="Changes" comment="Tp02">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aplication/implementation/factory/IndividualFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/factory/IndividualFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplication/abstraction/domain/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/abstraction/domain/Individual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplication/implementation/domain/F3Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/domain/F3Individual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aplication/implementation/runner/SimpleDiferentialEvolutionRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/runner/SimpleDiferentialEvolutionRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/EnumIndividualTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/EnumIndividualTypes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,13 +52,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/luiz/programing/Meus_projetos/IA/MLP&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/luiz/programing/Meus_projetos/IA/DiferentialEvolution"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -96,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679339992348</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Tp02">
+      <created>1680112689513</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680112689513</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,17 +121,7 @@
     <MESSAGE value="initial" />
     <MESSAGE value="initial folder and class structure" />
     <MESSAGE value="Fluxo completo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fluxo completo" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/aplication/implementation/runner/SimpleDiferentialEvolutionRunner.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Tp02" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tp02" />
   </component>
 </project>

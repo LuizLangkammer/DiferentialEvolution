@@ -28,7 +28,7 @@ public class F3Individual extends Individual {
     @Override
     public Double[] avaliate() {
         Double function1 = Math.pow(this.genes[0], 2) + Math.pow(this.genes[1], 2);
-        Double function2 = Math.pow(this.genes[0], 2) + Math.pow(this.genes[1]-2, 2);
+        Double function2 = Math.pow(this.genes[0], 2) + Math.pow(this.genes[1]-1, 2);
 
         Double[] results = {function1, function2};
         return results;
