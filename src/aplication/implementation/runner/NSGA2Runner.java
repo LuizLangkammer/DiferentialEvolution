@@ -13,8 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class NSGARunner implements IDiferentialEvolutionRunner {
-
+public class NSGA2Runner implements IDiferentialEvolutionRunner {
     @Override
     public ArrayList<Individual> execute(ArrayList<Individual> initialPopulation, int maxGenerations, Double mutationFactor, Double crossoverFactor) throws IOException {
         int individualDimension = initialPopulation.size();
@@ -25,22 +24,11 @@ public class NSGARunner implements IDiferentialEvolutionRunner {
 
             ArrayList<Individual> intermediary = new ArrayList<Individual>(initialPopulation);
 
-            for(int i=0; i<individualDimension; i++){
-
-                int[] r1r2r3 = this.generateUniqueR1R2R3(individualDimension);
-                int r1 = r1r2r3[0];
-                int r2 = r1r2r3[1];
-                int r3 = r1r2r3[2];
-
-                Individual individual1 = initialPopulation.get(r1);
-                Individual individual2 = initialPopulation.get(r2);
-                Individual individual3 = initialPopulation.get(r3);
-
-                Individual individualU = individual1.generateU(individual2, individual3, mutationFactor);
-                Individual experimental = initialPopulation.get(i).generateExperimental(individualU, crossoverFactor);
-
-                intermediary.add(experimental);
-
+            Collections.shuffle(initialPopulation);
+            for(int i=0; i<individualDimension; i+=2){
+                Individual [] children = initialPopulation.get(i).generateBlx(initialPopulation.get(i+1));
+                intermediary.add(children[0]);
+                intermediary.add(children[1]);
             }
 
             ArrayList<ArrayList<Individual>> frontends = fnds(intermediary);
@@ -239,5 +227,4 @@ public class NSGARunner implements IDiferentialEvolutionRunner {
             }
         }
     }
-
 }

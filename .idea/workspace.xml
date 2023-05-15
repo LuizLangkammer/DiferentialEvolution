@@ -7,8 +7,19 @@
     <list default="true" id="4678342d-abec-4328-bb2c-97047e2bf648" name="Changes" comment="fnds">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aplication/abstraction/runner/IDiferentialEvolutionRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/abstraction/runner/IDiferentialEvolutionRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplication/abstraction/domain/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/abstraction/domain/Individual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplication/implementation/domain/F2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/domain/individual/F2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplication/implementation/domain/F3Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/domain/individual/F3Individual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplication/implementation/domain/F4Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/domain/individual/F4Individual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplication/implementation/domain/X1X2Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/domain/individual/X1X2Individual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplication/implementation/factory/IndividualFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/factory/IndividualFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aplication/implementation/runner/NSGARunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/runner/NSGARunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aplication/implementation/runner/SimpleDiferentialEvolutionRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aplication/implementation/runner/SimpleDiferentialEvolutionRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/g_1000_objectives.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/g_1000_objectives.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/g_100_objectives.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/g_100_objectives.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/g_10_objectives.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/g_10_objectives.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/g_1_objectives.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/g_1_objectives.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/files/g_50_objectives.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/files/g_50_objectives.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,9 +66,18 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/luiz/programing/Meus_projetos/IA/MLP"
+    "last_opened_file_path": "/home/luiz/programing/Meus_projetos/IA/Ag2Luiz"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="DiferentialEvolution" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -109,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684083718826</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fnds">
+      <created>1684091586556</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684091586556</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,5 +157,21 @@
     <MESSAGE value="Tp02" />
     <MESSAGE value="fnds" />
     <option name="LAST_COMMIT_MESSAGE" value="fnds" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/aplication/implementation/runner/SimpleDiferentialEvolutionRunner.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/aplication/implementation/runner/NSGARunner.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

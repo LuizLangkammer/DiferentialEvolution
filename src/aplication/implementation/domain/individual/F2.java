@@ -1,4 +1,4 @@
-package aplication.implementation.domain;
+package aplication.implementation.domain.individual;
 
 import aplication.abstraction.domain.Individual;
 
@@ -11,6 +11,15 @@ public class F2 extends Individual {
 
     public F2(Double [] genes){
         super(genes);
+    }
+
+    @Override
+    public Individual [] generateBlx(Individual partner){
+        Double[][] childrenGenes = this.combineBLX(partner);
+        Individual firstChild = new F2(childrenGenes[0]);
+        Individual secondChild = new F2(childrenGenes[1]);
+        Individual [] children = {firstChild, secondChild};
+        return children;
     }
 
     @Override

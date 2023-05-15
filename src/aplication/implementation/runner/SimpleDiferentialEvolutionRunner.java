@@ -33,13 +33,11 @@ public class SimpleDiferentialEvolutionRunner implements IDiferentialEvolutionRu
                 Individual individualU = individual1.generateU(individual2, individual3, mutationFactor);
                 Individual experimental = initialPopulation.get(i).generateExperimental(individualU, crossoverFactor);
 
-                newPopulation.set(i, chooseByDomination(experimental, initialPopulation.get(i)));
+                newPopulation.add(chooseByDomination(experimental, initialPopulation.get(i)));
 
             }
             initialPopulation = newPopulation;
-            if(generations == 90)  {
-                System.out.println();
-            }
+
             Individual bestIndividual = getBestIndividual(initialPopulation);
             System.out.print(generations +": x -> ");
             for(int i=0; i<bestIndividual.getGenes().length; i++){

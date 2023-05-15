@@ -2,6 +2,7 @@ import aplication.abstraction.domain.Individual;
 import aplication.abstraction.factory.IIndividualFactory;
 import aplication.abstraction.runner.IDiferentialEvolutionRunner;
 import aplication.implementation.factory.IndividualFactory;
+import aplication.implementation.runner.NSGA2Runner;
 import aplication.implementation.runner.NSGARunner;
 import aplication.implementation.runner.SimpleDiferentialEvolutionRunner;
 import domain.EnumIndividualTypes;
@@ -13,13 +14,13 @@ public class Main {
     public static void main(String[] args) {
 
         IIndividualFactory individualFactory = new IndividualFactory();
-        EnumIndividualTypes type = EnumIndividualTypes.F2;
+        EnumIndividualTypes type = EnumIndividualTypes.F4Individual;
         int generations = 1000;
         int populationDimension = 20;
-        Double crossoverFactor = 0.8;
-        Double mutationFactor = 0.5;
+        Double crossoverFactor = 0.4;
+        Double mutationFactor = 0.6;
 
-        IDiferentialEvolutionRunner runner = new SimpleDiferentialEvolutionRunner();
+        IDiferentialEvolutionRunner runner = new NSGA2Runner();
 
         ArrayList<Individual> initialPopulation = new ArrayList<>();
         for(int i=0; i < populationDimension; i++){

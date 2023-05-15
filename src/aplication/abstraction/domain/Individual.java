@@ -1,5 +1,6 @@
 package aplication.abstraction.domain;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Individual {
@@ -7,10 +8,16 @@ public abstract class Individual {
     protected Double[] genes;
     protected Double[] avaliation;
 
+    protected int maxRange;
+
+    protected int minRange;
+
     protected double d;
 
     protected Individual(int dimension, int maxRange, int minRange){
-        this.genes = this.initializeGenes(dimension, maxRange, minRange);
+        this.genes = this.initializeGenes(dimension);
+        this.maxRange = maxRange;
+        this.minRange = minRange;
         this.avaliation = this.avaliate();
     }
 
@@ -18,7 +25,7 @@ public abstract class Individual {
         this.genes = genes;
         this.avaliation = this.avaliate();
     }
-    private Double[] initializeGenes(int dimension, int maxRange, int minRange){
+    private Double[] initializeGenes(int dimension){
         Double[] genes = new Double[dimension];
         Random random = new Random();
         for(int i=0; i<genes.length; i++){
@@ -56,7 +63,7 @@ public abstract class Individual {
         return genes;
     }
 
-    public Double [] combineExperimental(Individual individualU, Double crossoverFactor){
+    protected Double [] combineExperimental(Individual individualU, Double crossoverFactor){
 
         int genesDimension = this.genes.length;
         Random random  = new Random();
@@ -75,6 +82,54 @@ public abstract class Individual {
 
         return genes;
     }
+
+    protected Double[][] combineBLX(Individual partner) {
+
+        Double[] firstChildGenes = new Double[genes.length];
+        Double[] secondChildGenes = new Double[genes.length];
+
+        Double[] partnerInputs = partner.genes;
+
+        Random random = new Random();
+        double	drawn;
+        double firstChildInput;
+        double secondChildInput;
+
+        for(int i=0; i<genes.length;i++) {
+
+            drawn = random.nextGaussian(0,0.5);
+            firstChildInput = genes[i] + drawn*Math.abs(genes[i]-partnerInputs[i]);
+            firstChildInput = this.avaliateDomain(firstChildInput);
+            firstChildGenes[i] = firstChildInput;
+
+            drawn = random.nextGaussian(0,0.5);
+            secondChildInput = partnerInputs[i] + drawn*Math.abs(genes[i]-partnerInputs[i]);
+            secondChildInput = this.avaliateDomain(secondChildInput);
+            secondChildGenes[i] = secondChildInput;
+
+        }
+
+        Double [][] childrenGenes = new Double[2][genes.length];
+        childrenGenes[0] = firstChildGenes;
+        childrenGenes[1] = secondChildGenes;
+
+        return childrenGenes;
+    }
+
+    private double avaliateDomain(double input) {
+
+        if(input>maxRange) {
+            input = maxRange;
+        }else {
+            if(input<minRange) {
+                input = minRange;
+            }
+        }
+
+        return input;
+    }
+
+    public abstract Individual [] generateBlx(Individual partner);
 
     public abstract Individual generateExperimental(Individual individual, Double crossoverFactor);
 

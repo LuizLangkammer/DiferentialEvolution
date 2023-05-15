@@ -2,10 +2,10 @@ package aplication.implementation.factory;
 
 import aplication.abstraction.domain.Individual;
 import aplication.abstraction.factory.IIndividualFactory;
-import aplication.implementation.domain.F2;
-import aplication.implementation.domain.F3Individual;
-import aplication.implementation.domain.F4Individual;
-import aplication.implementation.domain.X1X2Individual;
+import aplication.implementation.domain.individual.F2;
+import aplication.implementation.domain.individual.F3Individual;
+import aplication.implementation.domain.individual.F4Individual;
+import aplication.implementation.domain.individual.X1X2Individual;
 import domain.EnumIndividualTypes;
 
 public class IndividualFactory implements IIndividualFactory {
