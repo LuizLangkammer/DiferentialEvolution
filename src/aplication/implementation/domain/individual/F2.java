@@ -31,7 +31,7 @@ public class F2 extends Individual {
     @Override
     public Individual generateU(Individual individual2, Individual individual3, Double mutationFactor) {
         Double [] genes = this.combineU(individual2, individual3, mutationFactor);
-        return new F2(genes);
+        return new F2(genes, maxRange, minRange);
     }
 
     @Override
