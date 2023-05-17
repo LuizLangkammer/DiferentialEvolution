@@ -9,15 +9,15 @@ public class F4Individual extends Individual {
         super(3,10,-10);
     }
 
-    public F4Individual(Double [] genes){
-        super(genes);
+    public F4Individual(Double [] genes, int maxRange, int minRange){
+        super(genes, maxRange, minRange);
     }
 
     @Override
     public Individual [] generateBlx(Individual partner){
         Double[][] childrenGenes = this.combineBLX(partner);
-        Individual firstChild = new F4Individual(childrenGenes[0]);
-        Individual secondChild = new F4Individual(childrenGenes[1]);
+        Individual firstChild = new F4Individual(childrenGenes[0], maxRange, minRange);
+        Individual secondChild = new F4Individual(childrenGenes[1], maxRange, minRange);
         Individual [] children = {firstChild, secondChild};
         return children;
     }
@@ -25,13 +25,13 @@ public class F4Individual extends Individual {
     @Override
     public Individual generateExperimental(Individual individual, Double crossoverFactor) {
         Double [] genes = this.combineExperimental(individual, crossoverFactor);
-        return new F4Individual(genes);
+        return new F4Individual(genes, maxRange, minRange);
     }
 
     @Override
     public Individual generateU(Individual individual2, Individual individual3, Double mutationFactor) {
         Double [] genes = this.combineU(individual2, individual3, mutationFactor);
-        return new F4Individual(genes);
+        return new F4Individual(genes, maxRange, minRange);
     }
 
     @Override

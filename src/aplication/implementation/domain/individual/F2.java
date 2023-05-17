@@ -9,15 +9,15 @@ public class F2 extends Individual {
         super(1,10,-10);
     }
 
-    public F2(Double [] genes){
-        super(genes);
+    public F2(Double [] genes, int maxRange, int minRange){
+        super(genes, maxRange, minRange);
     }
 
     @Override
     public Individual [] generateBlx(Individual partner){
         Double[][] childrenGenes = this.combineBLX(partner);
-        Individual firstChild = new F2(childrenGenes[0]);
-        Individual secondChild = new F2(childrenGenes[1]);
+        Individual firstChild = new F2(childrenGenes[0], maxRange, minRange);
+        Individual secondChild = new F2(childrenGenes[1], maxRange, minRange);
         Individual [] children = {firstChild, secondChild};
         return children;
     }
@@ -25,7 +25,7 @@ public class F2 extends Individual {
     @Override
     public Individual generateExperimental(Individual individual, Double crossoverFactor) {
         Double [] genes = this.combineExperimental(individual, crossoverFactor);
-        return new F2(genes);
+        return new F2(genes, maxRange, minRange);
     }
 
     @Override

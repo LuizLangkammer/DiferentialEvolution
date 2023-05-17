@@ -6,4 +6,5 @@ import domain.EnumIndividualTypes;
 public interface IIndividualFactory {
     public Individual obtem(EnumIndividualTypes type);
 
+
 }

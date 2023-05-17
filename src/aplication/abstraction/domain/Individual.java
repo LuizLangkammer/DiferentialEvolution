@@ -15,13 +15,13 @@ public abstract class Individual {
     protected double d;
 
     protected Individual(int dimension, int maxRange, int minRange){
-        this.genes = this.initializeGenes(dimension);
         this.maxRange = maxRange;
         this.minRange = minRange;
+        this.genes = this.initializeGenes(dimension);
         this.avaliation = this.avaliate();
     }
 
-    protected Individual(Double [] genes){
+    protected Individual(Double [] genes, int maxRange, int minRange){
         this.genes = genes;
         this.avaliation = this.avaliate();
     }
@@ -29,7 +29,7 @@ public abstract class Individual {
         Double[] genes = new Double[dimension];
         Random random = new Random();
         for(int i=0; i<genes.length; i++){
-            genes[i] = random.nextDouble() * maxRange * 2 * minRange;
+            genes[i] = (random.nextDouble() * (maxRange - minRange)) + minRange;
         }
         return genes;
     }
@@ -97,13 +97,14 @@ public abstract class Individual {
 
         for(int i=0; i<genes.length;i++) {
 
-            drawn = random.nextGaussian(0,0.5);
+            drawn = random.nextGaussian(0,0.1);
             firstChildInput = genes[i] + drawn*Math.abs(genes[i]-partnerInputs[i]);
             firstChildInput = this.avaliateDomain(firstChildInput);
             firstChildGenes[i] = firstChildInput;
 
-            drawn = random.nextGaussian(0,0.5);
+            drawn = random.nextGaussian(0,0.1);
             secondChildInput = partnerInputs[i] + drawn*Math.abs(genes[i]-partnerInputs[i]);
+
             secondChildInput = this.avaliateDomain(secondChildInput);
             secondChildGenes[i] = secondChildInput;
 
@@ -115,6 +116,33 @@ public abstract class Individual {
 
         return childrenGenes;
     }
+
+    public void mute() {
+        Double[] mutantGenes = new Double[genes.length];
+        double mutantGene;
+        Random random = new Random();
+        double drawn;
+        boolean muted = false;
+
+        for(int i=0;i<genes.length;i++) {
+            drawn = random.nextDouble(1);
+            mutantGene = genes[i];
+            if(drawn <= 0.1) {
+                muted = true;
+                mutantGene = genes[i] + random.nextGaussian(0, 0.5);
+            }
+            mutantGenes[i] = mutantGene;
+        }
+        if(!muted) {
+            int index = random.nextInt(genes.length);
+            mutantGene = mutantGenes[index]+random.nextGaussian(0,0.5);
+            mutantGene = this.avaliateDomain(mutantGene);
+            mutantGenes[index] = mutantGene;
+        }
+        this.genes = mutantGenes;
+        this.avaliate();
+    }
+
 
     private double avaliateDomain(double input) {
 

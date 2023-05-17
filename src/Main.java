@@ -14,8 +14,8 @@ public class Main {
     public static void main(String[] args) {
 
         IIndividualFactory individualFactory = new IndividualFactory();
-        EnumIndividualTypes type = EnumIndividualTypes.F4Individual;
-        int generations = 1000;
+        EnumIndividualTypes type = EnumIndividualTypes.F3Individual;
+        int generations = 100;
         int populationDimension = 20;
         Double crossoverFactor = 0.4;
         Double mutationFactor = 0.6;

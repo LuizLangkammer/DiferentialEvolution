@@ -19,6 +19,7 @@ public class NSGA2Runner implements IDiferentialEvolutionRunner {
         int individualDimension = initialPopulation.size();
         int generations = 0;
         IExportToFileService exportToFile = new ExportToFileService();
+        Random random = new Random();
 
         while(generations <= maxGenerations){
 
@@ -27,6 +28,12 @@ public class NSGA2Runner implements IDiferentialEvolutionRunner {
             Collections.shuffle(initialPopulation);
             for(int i=0; i<individualDimension; i+=2){
                 Individual [] children = initialPopulation.get(i).generateBlx(initialPopulation.get(i+1));
+                if(random.nextDouble() > 0.9){
+                    children[0].mute();
+                }
+                if(random.nextDouble() > 0.9){
+                    children[1].mute();
+                }
                 intermediary.add(children[0]);
                 intermediary.add(children[1]);
             }
